@@ -29,6 +29,10 @@
 }
 
 /*======================FOOTER======================*/
+footer {
+    padding: 2%;
+}
+
 .eventImg {
     height: 10rem;
 }
