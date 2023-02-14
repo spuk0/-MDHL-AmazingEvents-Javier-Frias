@@ -23,6 +23,12 @@
     color: black;
 }
 
+/*======================CHECKBOXES======================*/
 .categoryCheckboxes {
     width: 50vh;
+}
+
+/*======================FOOTER======================*/
+.eventImg {
+    height: 10rem;
 }
