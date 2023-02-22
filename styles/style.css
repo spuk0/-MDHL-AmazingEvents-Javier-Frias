@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 /*======================NAVBAR======================*/
 .navbarLogo {
     width: 60px;
@@ -29,7 +30,11 @@
 
 /*======================FOOTER======================*/
 footer {
-    padding: 2%;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    width: 100%;
+    padding: 1%;
 }
 
 .eventImg {
