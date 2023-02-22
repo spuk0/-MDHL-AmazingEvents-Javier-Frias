@@ -24,10 +24,31 @@
 }
 
 /*======================CHECKBOXES======================*/
+.searchBar {
+    margin-top: 10px;
+}
 .categoryCheckboxes {
     width: 50vh;
 }
 
+/*======================MAIN-CARDS======================*/
+#cards {
+    margin-top: 8%;
+}
+
+.card {
+    transition: all 0.3s ease-out 5ms;
+}
+
+.card:hover {
+    border: 1px solid red;
+    box-shadow: 0 0 10px 2px rgb(217, 3, 104);
+}
+
+/*===SHOWMORE-BUTTON====*/
+.btn-showMore {
+    
+}
 /*======================FOOTER======================*/
 footer {
     position:fixed;
