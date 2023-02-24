@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+:root {
+    --colorLogo: rgb(217, 3, 104);
+}
+
 /*======================NAVBAR======================*/
 .navbarLogo {
     width: 60px;
@@ -13,6 +17,8 @@
 
 /*======================TITLE======================*/
 .title {
+    position: relative;
+    top: 56px;
     width: 100%;
     border: 1px solid black;
     background-color: beige;
@@ -25,7 +31,8 @@
 
 /*======================CHECKBOXES======================*/
 .searchBar {
-    margin-top: 10px;
+    margin-top: 70px;
+    margin-bottom: -70px;
 }
 .categoryCheckboxes {
     width: 50vh;
@@ -33,25 +40,76 @@
 
 /*======================MAIN-CARDS======================*/
 #cards {
-    margin-top: 8%;
+    margin-top: 5%;
+    margin-bottom: 3%;
 }
 
-.card {
+.cardMain {
+    max-height: 20%;
     transition: all 0.3s ease-out 5ms;
 }
 
-.card:hover {
+.cardMain:hover {
     border: 1px solid red;
-    box-shadow: 0 0 10px 2px rgb(217, 3, 104);
+    box-shadow: 0 0 10px 2px var(--colorLogo);
 }
 
 /*===SHOWMORE-BUTTON====*/
 .btn-showMore {
     
 }
+
+/*======================CONTACT======================*/
+.form-contact {
+    position: absolute;
+    top: 15%;
+    color: rgb(33,37,41);
+}
+
+.text-primary {
+    color: var(--colorLogo) !important;
+}
+
+.btn-contact {
+    background-color: var(--colorLogo) !important;
+}
+
+/*======================STATS======================*/
+.table {
+    position: relative;
+    top: 25vh;
+    border: 1px solid var(--colorLogo);
+}
+
+.table td {
+    border: 1px solid var(--colorLogo) !important;
+}
+
+/*======================DETAILS======================*/
+.mainDetails {
+    padding: 10% 0 0 0;
+}
+
+.cardDetails {
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.card-text-details {
+    width: 18rem;
+    height: 15rem;
+}
+.img-details {
+    border: 1px solid #eee;
+    width: 18rem;
+    height: 15rem;
+}
+
+
 /*======================FOOTER======================*/
 footer {
-    position:fixed;
+    position: fixed;
     left:0px;
     bottom:0px;
     width: 100%;
@@ -60,4 +118,53 @@ footer {
 
 .eventImg {
     height: 10rem;
+}
+
+/*======================MEDIA-QUERIES======================*/
+
+/*Celus muy pequenios*/
+@media (max-width: 575.98px){
+    .cardDetails {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .card-text-details {
+        width: 10rem;
+        height: 15rem;
+    }
+}
+
+/*Celus pequenios*/
+@media (min-width: 576px) and (max-width: 767px){
+    .cardDetails {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .card-text-details {
+        width: 15rem;
+        height: 15rem;
+    }
+
+}
+
+/*Tablets*/
+@media (min-width: 768px) and (max-width: 991px) {
+    .cardDetails {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .card-text-details {
+        width: 15rem;
+        height: 15rem;
+    }
+    .img-details {
+        border: 1px solid #eee;
+        width: 15rem;
+        height: 15rem;
+    }
+}
+
+/*Celus pc*/
+@media (min-width: 992px){
+
 }
