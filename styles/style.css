@@ -8,6 +8,10 @@
     --colorLogo: rgb(217, 3, 104);
 }
 
+main {
+    min-height: 85.3vh;
+}
+
 /*======================NAVBAR======================*/
 .navbarLogo {
     width: 60px;
@@ -75,14 +79,17 @@
 }
 
 /*======================STATS======================*/
-.table {
-    position: relative;
-    top: 25vh;
-    border: 1px solid var(--colorLogo);
+caption {	
+    color: var(--colorLogo) !important;
 }
 
-.table td {
-    border: 1px solid var(--colorLogo) !important;
+.table-container {
+    position: relative;
+    top: 10vh;
+}
+
+.table td, .table th {
+    border: 1px solid black;
 }
 
 /*======================DETAILS======================*/
@@ -109,9 +116,6 @@
 
 /*======================FOOTER======================*/
 footer {
-    position: fixed;
-    left:0px;
-    bottom:0px;
     width: 100%;
     padding: 1%;
 }
