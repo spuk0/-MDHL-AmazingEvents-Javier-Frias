@@ -14,9 +14,9 @@ function createCards(){
         day += event.date[8] + event.date[9];
         year += event.date[0] + event.date[1] + event.date[2] + event.date[3];
 
-        let compareYear = year > currentYear;
-        let compareMonth = year == currentYear && month >= currentMonth;
-        let compareDay = compareMonth && day >= currentDay;
+        let compareYear = year < currentYear;
+        let compareMonth = year <= currentYear && month <= currentMonth;
+        let compareDay = compareMonth && day <= currentDay;
 
         if(compareYear || compareMonth || compareDay) {
             cardText += `<div class="card cardMain" style="width: 15rem;">
@@ -39,9 +39,9 @@ function createCards(){
     return cardText;
 }
 
-function addCardsUpcomingEvents(){
+function addCardsPastEvents(){
     const cardsContainer = document.getElementById("cards");
     cardsContainer.innerHTML = createCards();
 }
 
-addCardsUpcomingEvents();
+addCardsPastEvents();
