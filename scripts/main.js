@@ -1,6 +1,6 @@
 function createCards(){
     let cardText = "";
-    for (const event of events ){
+    for (const event of objEvent.events ){
         cardText += `<div class="card cardMain" style="width: 15rem;">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">

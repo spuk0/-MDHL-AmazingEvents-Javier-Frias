@@ -1,24 +1,22 @@
-const currentMonth= currentDate[5] + currentDate[6];
-const currentDay = currentDate[8] + currentDate[9];
-const currentYear = currentDate[0] + currentDate[1] + currentDate[2] + currentDate[3];
+const currentMonth= objEvent.currentDate[5] + objEvent.currentDate[6];
+const currentDay = objEvent.currentDate[8] + objEvent.currentDate[9];
+const currentYear = objEvent.currentDate[0] + objEvent.currentDate[1] + objEvent.currentDate[2] + objEvent.currentDate[3];
 
-console.log(currentYear, currentMonth, currentDay);
+var currentDate = new Date(currentYear, currentMonth, currentDay);
+
 
 function createCards(){
     let cardText = "";
     let day = "";
     let month = "";
     let year = "";
-    for (const event of events ){
+    for (const event of objEvent.events ){
         month += event.date[5] + event.date[6];
         day += event.date[8] + event.date[9];
         year += event.date[0] + event.date[1] + event.date[2] + event.date[3];
 
-        let compareYear = year < currentYear;
-        let compareMonth = year <= currentYear && month <= currentMonth;
-        let compareDay = compareMonth && day <= currentDay;
-
-        if(compareYear || compareMonth || compareDay) {
+        var eventDate = new Date(year, month, day);
+        if(currentDate > eventDate) {
             cardText += `<div class="card cardMain" style="width: 15rem;">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
