@@ -64,9 +64,6 @@ main {
 
 /*======================CONTACT======================*/
 .form-contact {
-    padding: 10vh;
-    position: absolute;
-    top: 15%;
     color: rgb(33,37,41);
 }
 
@@ -111,7 +108,6 @@ caption {
 
 /*======================FOOTER======================*/
 footer {
-
     width: 100%;
     padding: 1%;
 }
