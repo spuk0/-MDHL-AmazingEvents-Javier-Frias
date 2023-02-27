@@ -83,12 +83,6 @@ caption {
     color: var(--colorLogo) !important;
 }
 
-.table-container {
-    padding: 10vh;
-    position: relative;
-    top: 10vh;
-}
-
 .table td, .table th {
     border: 1px solid black;
 }
@@ -117,8 +111,7 @@ caption {
 
 /*======================FOOTER======================*/
 footer {
-    position: fixed;
-    bottom: 0;
+
     width: 100%;
     padding: 1%;
 }
