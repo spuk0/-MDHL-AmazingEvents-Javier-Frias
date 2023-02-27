@@ -49,6 +49,7 @@ main {
 }
 
 .cardMain {
+    margin-bottom: 20px;
     max-height: 20%;
     transition: all 0.3s ease-out 5ms;
 }
@@ -59,9 +60,6 @@ main {
 }
 
 /*===SHOWMORE-BUTTON====*/
-.btn-showMore {
-    
-}
 
 /*======================CONTACT======================*/
 .form-contact {
