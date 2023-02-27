@@ -26,6 +26,7 @@ main {
     width: 100%;
     border: 1px solid black;
     background-color: beige;
+    margin-bottom: 100px;
 }
 
 .title a {
@@ -36,7 +37,7 @@ main {
 /*======================CHECKBOXES======================*/
 .searchBar {
     margin-top: 70px;
-    margin-bottom: -70px;
+    margin-bottom: 5px;
 }
 .categoryCheckboxes {
     width: 50vh;
@@ -45,7 +46,7 @@ main {
 /*======================MAIN-CARDS======================*/
 #cards {
     margin-top: 5%;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
 }
 
 .cardMain {
