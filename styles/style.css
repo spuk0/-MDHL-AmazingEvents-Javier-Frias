@@ -85,26 +85,9 @@ caption {
 }
 
 /*======================DETAILS======================*/
-.mainDetails {
-    padding: 10% 0 0 0;
+.imageDetail {
+    min-height: 25vh;
 }
-
-.cardDetails {
-    width: 50%;
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-.card-text-details {
-    width: 18rem;
-    height: 15rem;
-}
-.img-details {
-    border: 1px solid #eee;
-    width: 18rem;
-    height: 15rem;
-}
-
 
 /*======================FOOTER======================*/
 footer {

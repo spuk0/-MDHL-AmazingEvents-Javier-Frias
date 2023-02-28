@@ -1,3 +1,15 @@
+const searchFilter = document.getElementById("searchBar");
+
+searchFilter.addEventListener("submit", search);
+
+function search(event){
+    event.preventDefault();
+    dataFromSearch = {
+        Category : event.target[1].value
+    };
+    console.log(dataFromSearch);
+}
+
 function createCards(){
     let cardText = "";
     for (const event of objEvent.events ){
@@ -23,3 +35,9 @@ function addCards(){
 }
 
 addCards();
+
+
+
+
+
+

@@ -84,7 +84,7 @@
               d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"
             />
           </svg>
-          </a>
+        </a>
         <h1>Details</h1>
         <a href="#"
           ><svg
@@ -103,23 +103,26 @@
       </div>
     </header>
     <!--======================MAIN======================-->
-    <main class="mainDetails d-flex justify-content-center">
+    <main>
       <!--======================CARD======================-->
-      <div class="cardDetails cardMain card d-flex flex-row justify-content-around">
-            <img
-              src="../assets/Cinema.jpg"
-              class="img-fluid img-details"
-              alt="..."
-            />
-          <div class="card card-text-details">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-            <p class="card-text">Description</p>
-            <p class="card-text">Description</p>
-            <p class="card-text">Description</p>
-            <p class="card-text">Description</p>
+      <div class="container d-flex justify-content-center">
+        <div class="card mb-3 col-12 cardDetails align-items-center">
+          <div class="row g-5">
+            <div class="col-md-4 align-self-center">
+              <img
+                src="../assets/Cinema.jpg"
+                class="img-fluid rounded-start imageDetail"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8 text-center">
+              <div class="card-body">
+                <h5 class="card-title">Title</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure repudiandae reprehenderit molestias odio quia recusandae blanditiis animi dolorem inventore reiciendis sed beatae atque tempora aut distinctio, expedita doloremque, laudantium eos.</p>
+              </div>
             </div>
           </div>
+        </div>
       </div>
     </main>
     <!--======================FOOTER======================-->
@@ -177,6 +180,8 @@
         <h3>FE01-TM</h3>
       </div>
     </footer>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/details.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
