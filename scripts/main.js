@@ -3,7 +3,7 @@ const cardsContainer = document.getElementById("cards");
 const checkboxesFilter = document.getElementById("searchBar");
 const searchWriteSpace = document.getElementById("search-write-space");
 const bodyPage = document.querySelector("body");
-let htmlCard = ""; //Un string que almacenara el codigo html necesario para crear una carta.
+let htmlCards = ""; //Un string que almacenara el codigo html necesario para crear una carta.
 
 /*=================Eventos con referencias a funciones=================*/
 bodyPage.addEventListener("load", allCards()); //Al cargar la pagina genera las cartas.
@@ -22,7 +22,7 @@ function addCards(htmlCode){
 /*--Carga todas las cartas y las agrega al contenedor de cartas--*/
 function allCards(){
     for (const event of objEvent.events ){
-        htmlCard += `<div class="card cardMain" style="width: 15rem;">
+        htmlCards += `<div class="card cardMain" style="width: 15rem;">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${event.name}</h5>
@@ -35,19 +35,19 @@ function allCards(){
                             </div>
                     </div>`
     }
-    addCards(htmlCard);
+    addCards(htmlCards);
 }
 
 /*--Realiza una busqueda del texto insertado en el input
     @param event - representa el evento al cual esta funcion esta siendo referenciada.
 --*/
 function searchText(event){
-    htmlCard = ""; //Limpia el html de las cartas del contenedor de cartas.
+    let htmlCards = "";
     let writedText = event.target.value.toLowerCase().trim(); //Guarda en la variable lo que se este insertando en el input, y aplica metodos string.
     objEvent.events.forEach(event => { 
         let nameEvent = event.name.toLowerCase(); //Guarda el nombre del evento de la base de datos.
         if(nameEvent.startsWith(writedText)){ //Si el evento coincide con lo escrito en el input, genera el html para su correspondiente carta.
-            htmlCard += `<div class="card cardMain" style="width: 15rem;">
+            htmlCards += `<div class="card cardMain" style="width: 15rem;">
                             <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${event.name}</h5>
@@ -61,11 +61,12 @@ function searchText(event){
                         </div>`
         }
     });
-    addCards(htmlCard); //Todas las cartas que pudieron generarse seran agregadas al contenedor de cartas.
+    addCards(htmlCards); //Todas las cartas que pudieron generarse seran agregadas al contenedor de cartas.
 }
 
 
 function search(event){
+    let newHtmlCards="";
     event.preventDefault();
     dataFromSearch = {
         category : (() => {
@@ -82,13 +83,13 @@ function search(event){
     checkbox = {
         applySearchCheckbox: ( () => {
             if(dataFromSearch.category.length == 0){
-                addCards();
-                alert("Please select a category or type a search");
+                allCards();
+                alert("Please select a category");
             }else {
                 objEvent.events.forEach(event => {
                     dataFromSearch.category.forEach(selectedCategory => {
                         if(event.category === selectedCategory){
-                            htmlCard += `<div class="card cardMain" style="width: 15rem;">
+                            newHtmlCards += `<div class="card cardMain" style="width: 15rem;">
                                             <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                                             <div class="card-body">
                                                 <h5 class="card-title">${event.name}</h5>
@@ -103,7 +104,8 @@ function search(event){
                         }
                     })
                 });
-                addCards(htmlCard); 
+                addCards(newHtmlCards);
+                htmlCards = newHtmlCards;
             }
         })()
     };
