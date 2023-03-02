@@ -1,12 +1,13 @@
-const searchFilter = document.getElementById("searchBar");
-searchFilter.addEventListener("submit", search);
-
+const checkboxesFilter = document.getElementById("searchBar");
+const searchWriteSpace = document.getElementById("search-write-space");
+searchWriteSpace.addEventListener("keyup",search);
+checkboxesFilter.addEventListener("submit", search);
 
 function search(event){
     let cardText = "";
     event.preventDefault();
     dataFromSearch = {
-        Category : (() => {
+        category : (() => {
             let arrayCategories = [];
             let categories = event.target.querySelectorAll("input[type=checkbox]");
             for(let i=0; i < categories.length; i++){
@@ -18,13 +19,13 @@ function search(event){
         })()
     },
     checkbox = {
-        ApplySearchCheckbox: ( () => {
-            if(dataFromSearch.Category.length == 0){
+        applySearchCheckbox: ( () => {
+            if(dataFromSearch.category.length == 0){
                 addCards();
                 alert("Please select a category or type a search");
             }else {
                 objEvent.events.forEach(event => {
-                    dataFromSearch.Category.forEach(selectedCategory => {
+                    dataFromSearch.category.forEach(selectedCategory => {
                         if(event.category === selectedCategory){
                             cardText += `<div class="card cardMain" style="width: 15rem;">
                                             <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
@@ -47,7 +48,7 @@ function search(event){
             }
         })()
     };
-    checkbox.ApplySearchCheckbox;  
+    checkbox.applySearchCheckbox;
 }
 
 function createCards(){
