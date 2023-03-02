@@ -5,9 +5,6 @@ const searchWriteSpace = document.getElementById("search-write-space");
 searchWriteSpace.addEventListener("keyup",searchText); //Input text.
 checkboxesFilter.addEventListener("submit", search); //Boton submit.
 
-
-
-
 function searchText(event){
     let cardText = "";
     let writedText = event.target.value.toLowerCase().trim();
