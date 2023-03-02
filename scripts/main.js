@@ -1,8 +1,11 @@
+/*Constantes y asignaciones de etiquetas*/
 const cardsContainer = document.getElementById("cards");
 const checkboxesFilter = document.getElementById("searchBar");
 const searchWriteSpace = document.getElementById("search-write-space");
-searchWriteSpace.addEventListener("keyup",searchText);
-checkboxesFilter.addEventListener("submit", search);
+searchWriteSpace.addEventListener("keyup",searchText); //Input text.
+checkboxesFilter.addEventListener("submit", search); //Boton submit.
+
+
 
 
 function searchText(event){
@@ -10,7 +13,7 @@ function searchText(event){
     let writedText = event.target.value.toLowerCase().trim();
     objEvent.events.forEach(event => {
         let nameEvent = event.name.toLowerCase();
-        if(nameEvent.includes(writedText)){
+        if(nameEvent.startsWith(writedText)){
             cardText += `<div class="card cardMain" style="width: 15rem;">
                             <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
@@ -70,7 +73,7 @@ function search(event){
                         }
                     })
                 });
-                cardsContainer.innerHTML = cardText;   
+                cardsContainer.innerHTML = cardText;  
             }
         })()
     };
