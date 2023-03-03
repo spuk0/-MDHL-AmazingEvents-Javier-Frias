@@ -147,3 +147,12 @@ footer {
 @media (min-width: 992px){
 
 }
+
+/*======================JAVASCRIPT======================*/
+.filterInputSearch {
+    display: none;
+}
+
+.filterCheckboxSearch {
+    display: none;
+}
