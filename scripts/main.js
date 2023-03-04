@@ -60,7 +60,6 @@ function allCards(){
 --*/
 function searchText(event){
     let writedText = event.target.value.toLowerCase().trim(); //Guarda en la variable lo que se este insertando en el input, y aplica metodos string.
-
     objEvent.events.forEach(event => {
         const selectedCard = document.getElementById(event._id); //Carta elegida segun ID.
         let nameEvent = event.name.toLowerCase(); //Guarda el nombre del evento de la base de datos y lo convierte a minusculas.

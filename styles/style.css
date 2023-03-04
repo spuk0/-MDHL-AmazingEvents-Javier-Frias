@@ -154,10 +154,6 @@ footer {
 }
 
 /*======================JAVASCRIPT======================*/
-.filterInputSearch {
-    display: none;
-}
-
-.filterCheckboxSearch {
+.filterCheckboxSearch, .filterInputSearch {
     display: none;
 }
