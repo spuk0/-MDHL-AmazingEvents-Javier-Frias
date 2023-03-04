@@ -26,6 +26,7 @@ checkboxesFilter.addEventListener("change", (event) => { //Al percibirse cambios
     }
 });
 
+
 /*=================Funciones asignadas a eventos=================*/
 
 /*--Es para agregar cards al contenedor de cards
@@ -108,6 +109,10 @@ function search(event){
             }
         })()
     };
+}
+
+function loadEfect(){
+    console.log("HOLA");
 }
 
 
