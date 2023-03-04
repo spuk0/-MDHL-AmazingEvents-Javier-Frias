@@ -8,6 +8,10 @@
     --colorLogo: rgb(217, 3, 104);
 }
 
+body {
+    background-color: beige;
+}
+
 main {
     min-height: 85.3vh;
 }
@@ -25,7 +29,7 @@ main {
     top: 56px;
     width: 100%;
     border: 1px solid black;
-    background-color: beige;
+    background-color: var(--colorLogo);
     margin-bottom: 100px;
 }
 
@@ -146,4 +150,13 @@ footer {
 /*Celus pc*/
 @media (min-width: 992px){
 
+}
+
+/*======================JAVASCRIPT======================*/
+.filterInputSearch {
+    display: none;
+}
+
+.filterCheckboxSearch {
+    display: none;
 }
