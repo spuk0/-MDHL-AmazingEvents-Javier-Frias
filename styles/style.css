@@ -154,6 +154,6 @@ footer {
 }
 
 /*======================JAVASCRIPT======================*/
-.filterCheckboxSearch, .filterInputSearch {
+.filterCheckboxSearch, .filterInputSearch, filter {
     display: none;
 }
