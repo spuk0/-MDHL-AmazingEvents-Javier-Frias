@@ -67,7 +67,7 @@ function searchText(event){
         const selectedCard = document.getElementById(event._id); //Carta elegida segun ID.
         let nameEvent = event.name.toLowerCase(); //Guarda el nombre del evento de la base de datos y lo convierte a minusculas.
 
-        if(selectedCard.classList.contains("filterCheckboxSearch")){
+        if(selectedCard.classList.contains("filterCheckboxSearch")){ //Si contiene el filtro de checkboxes
             countFiltered++;
         }else{
             if(nameEvent.startsWith(writedText)){ //Si el evento coincide con lo escrito en el input, quita la clase filter.
@@ -128,9 +128,3 @@ function errorMessage(countFiltered, countCards, writedText){
         document.getElementById("errorMessage").innerHTML = "";
     }
 }
-
-
-
-
-
-

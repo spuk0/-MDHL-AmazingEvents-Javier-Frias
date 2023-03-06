@@ -73,58 +73,13 @@ function allCardsUpcomingEvents(){
 }
 
 /*=================Funciones asignadas a eventos=================*/
-
-/*--Es para agregar cards al contenedor de cards
-        @param htmlCode - representa el codigo html que debe ir como parametro.
---*/
-function addCards(htmlCode){
-    cardsContainer.innerHTML = htmlCode; //agrega el string como contenido del cardsContainer
-}
-
-/*--Escribe y agrega las cards segun su fecha, eventos pasados.--*/
-function allCardsPastEvents(){
-    const currentMonth= objEvent.currentDate[5] + objEvent.currentDate[6];
-    const currentDay = objEvent.currentDate[8] + objEvent.currentDate[9];
-    const currentYear = objEvent.currentDate[0] + objEvent.currentDate[1] + objEvent.currentDate[2] + objEvent.currentDate[3];
-    const currentDate = new Date(currentYear, currentMonth, currentDay); //Con las constantes anteriores fijo la fecha dada en la base de datos.
-    /*Variables para guardar las fechas de los eventos*/
-    let day = "";
-    let month = "";
-    let year = "";
-    for (const event of objEvent.events ){ //Por cada evento asignamos fechas
-        month += event.date[5] + event.date[6];
-        day += event.date[8] + event.date[9];
-        year += event.date[0] + event.date[1] + event.date[2] + event.date[3];
-
-        var eventDate = new Date(year, month, day); //Asignacion de fecha del eveto.
-        if(currentDate > eventDate) { //Solo eventos pasados construiran el codigo html de la card.
-            htmlCards += `<div id="${event._id}" class="card cardMain" style="width: 15rem;">
-                        <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${event.name}</h5>
-                                <p class="card-text">${event.date}</p>
-                                <p class="card-text">${event.description}</p>
-                                <div class="d-flex justify-content-between align-items-end">
-                                    <h6 class="cardPrice">$${event.price}</h6>
-                                    <a href="../pages/details.html" class="btn btn-primary btn-showMore">Show more</a>
-                                </div>
-                            </div>
-                    </div>`
-        }
-        month = "";
-        day = "";
-        year = "";
-    }
-    addCards(htmlCards); //agrego el string.
-}
-
-/*=================Funciones asignadas a eventos=================*/
 /*--Realiza una busqueda del texto insertado en el input
     @param event - representa el evento al cual esta funcion esta siendo referenciada.
 --*/
 function searchText(event){
     let writedText = event.target.value.toLowerCase().trim(); //Guarda en la variable lo que se este insertando en el input, y aplica metodos string.
-
+    let countCards = 0;
+    let countFiltered = 0;
     objEvent.events.forEach(event => {
         const selectedCard = document.getElementById(event._id); //Carta elegida segun ID.
         let nameEvent = event.name.toLowerCase(); //Guarda el nombre del evento de la base de datos y lo convierte a minusculas.
@@ -134,10 +89,15 @@ function searchText(event){
                     selectedCard.classList.remove("filterInputSearch"); 
                 }else{
                     selectedCard.classList.add("filterInputSearch"); //Agregamos la clase filtro que quita la carta de la vista de la pantalla.
+                    countFiltered++;
                 }
+            }else{
+                countFiltered++;
             }
+            countCards++;
         }
     });
+    errorMessage(countFiltered, countCards, writedText)
 }
 
 /*--Realiza una busqueda segun los checkboxes seleccionados.
@@ -177,4 +137,14 @@ function search(event){
             }
         })()
     };
+}
+
+/*--Muestra un error si no se encuentra una busqueda--*/
+function errorMessage(countFiltered, countCards, writedText){
+    if(countCards == countFiltered){
+        document.getElementById("errorMessage").innerHTML =`<h2>ERROR</h2>
+                                                            <p>${writedText} not found</p>`
+    }else{
+        document.getElementById("errorMessage").innerHTML = "";
+    }
 }

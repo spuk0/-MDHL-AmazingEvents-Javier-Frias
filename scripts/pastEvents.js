@@ -79,7 +79,8 @@ function allCardsPastEvents(){
 --*/
 function searchText(event){
     let writedText = event.target.value.toLowerCase().trim(); //Guarda en la variable lo que se este insertando en el input, y aplica metodos string.
-
+    let countCards = 0;
+    let countFiltered = 0;
     objEvent.events.forEach(event => {
         const selectedCard = document.getElementById(event._id); //Carta elegida segun ID.
         let nameEvent = event.name.toLowerCase(); //Guarda el nombre del evento de la base de datos y lo convierte a minusculas.
@@ -89,10 +90,15 @@ function searchText(event){
                     selectedCard.classList.remove("filterInputSearch"); 
                 }else{
                     selectedCard.classList.add("filterInputSearch"); //Agregamos la clase filtro que quita la carta de la vista de la pantalla.
+                    countFiltered++;
                 }
+            }else{
+                countFiltered++;
             }
+            countCards++;
         }
     });
+    errorMessage(countFiltered, countCards, writedText);
 }
 
 /*--Realiza una busqueda segun los checkboxes seleccionados.
@@ -132,4 +138,14 @@ function search(event){
             }
         })()
     };
+}
+
+/*--Muestra un error si no se encuentra una busqueda--*/
+function errorMessage(countFiltered, countCards, writedText){
+    if(countCards == countFiltered){
+        document.getElementById("errorMessage").innerHTML =`<h2>ERROR</h2>
+                                                            <p>${writedText} not found</p>`
+    }else{
+        document.getElementById("errorMessage").innerHTML = "";
+    }
 }
