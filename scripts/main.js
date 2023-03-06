@@ -40,7 +40,7 @@ function addCards(htmlCode){
 /*--Carga todas las cartas y las agrega al contenedor de cartas--*/
 function allCards(){
     for (const event of objEvent.events ){
-        htmlCards += `<div id="${event._id}" class="card cardMain" style="width: 15rem;">
+        htmlCards += `<div id="${event._id}" class="card cardMain">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${event.name}</h5>

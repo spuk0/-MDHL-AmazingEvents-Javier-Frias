@@ -54,14 +54,26 @@ main {
 }
 
 .cardMain {
-    margin-bottom: 20px;
-    max-height: 20%;
+    margin-bottom: 40px;
+    width: 20rem;
+    max-height: 50rem;
+    overflow:hidden;
+    box-shadow: 0 0 5px 2px grey;
+    border: 1px solid black;
+    transition: all 0.3s ease-out 5ms;
+}
+
+.eventImg {
+    min-height: 15rem;
+    overflow:hidden;
     transition: all 0.3s ease-out 5ms;
 }
 
 .cardMain:hover {
-    border: 1px solid red;
-    box-shadow: 0 0 10px 2px var(--colorLogo);
+    border: 1px solid var(--colorLogo);
+    filter: saturate(190%);
+    -webkit-transform:scale(1);
+    transform:scale(1.1);
 }
 
 /*===SHOWMORE-BUTTON====*/
