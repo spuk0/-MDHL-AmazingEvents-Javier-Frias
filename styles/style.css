@@ -48,11 +48,11 @@ main {
 }
 
 /*======================MAIN-CARDS======================*/
-#cards {
+#cards{
     margin-top: 5%;
-    margin-bottom: 5%;
+    gap: 40px;
+    /*padding: 10vh;*/
 }
-
 .cardMain {
     margin-bottom: 40px;
     width: 20rem;
