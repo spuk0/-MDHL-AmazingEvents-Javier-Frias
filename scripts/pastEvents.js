@@ -53,7 +53,7 @@ function allCardsPastEvents(){
 
         var eventDate = new Date(year, month, day); //Asignacion de fecha del eveto.
         if(currentDate > eventDate) { //Solo eventos pasados construiran el codigo html de la card.
-            htmlCards += `<div id="${event._id}" class="card cardMain" style="width: 15rem;">
+            htmlCards += `<div id="${event._id}" class="card cardMain">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">
                                 <h5 class="card-title">${event.name}</h5>
