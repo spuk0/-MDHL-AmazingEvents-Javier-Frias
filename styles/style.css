@@ -2,15 +2,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
 :root {
     --colorLogo: #d90368;
+    --colorClaro: #FFF5EE;
+    --colorOscuro: #212529
 }
 
 body {
-    background-color: #FFF5EE;
-    background-color: #bbaa99;
+    background-color: var(--colorClaro);
     background-image: url("../assets/polygon-background.svg");
     background-attachment: fixed;
     }
@@ -20,28 +22,59 @@ main {
 }
 
 /*======================NAVBAR======================*/
-.navbarLogo {
-    width: 60px;
-    height: 20px;
+/*==Text==*/
+.navbar-nav {
+    margin-right: 20px;
+}
+.navbar-nav a {
+    font-size: 20px;
+    color: var(--colorClaro);
+    transition: color 0.3s ease-out 5ms;
+}
+.navbar-nav a:hover {
+    color: var(--colorLogo);
+    -webkit-transform:scale(1);
+    transform:scale(1.1);
 }
 
+/*==Brand==*/
+.navbarLogo {
+    width: 15vh;
+}
+.navbar-brand {
+    margin-left: 20px;
+}
+.navbar-brand:hover {
+    filter: saturate(190%);
+}
 
 /*======================TITLE======================*/
 .title {
-    position: relative;
-    top: 56px;
-    width: 100%;
-    background-color: transparent;
-    margin-bottom: 100px;
-    color: black;
-}
-
-.title a {
-    text-decoration: none;
+    padding: 8vh;
+    background-image: url("../assets/title-background.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
     color: var(--colorLogo);
 }
 
+/*==Flechas==*/
+.title a {
+    text-decoration: none;
+    color: var(--colorLogo);
+    width: 50px;
+}
+.title a:hover{
+    filter: saturate(80%);
+}
+
 /*======================CHECKBOXES======================*/
+
+.searchBarContainer{
+    /*position: sticky;
+    top: 10vh;¨*/
+    color: var(--colorLogo);
+}
+
 .searchBar {
     margin-top: 70px;
     margin-bottom: 5px;
@@ -57,6 +90,7 @@ main {
     /*padding: 10vh;*/
 }
 .cardMain {
+    position:static;
     margin-bottom: 40px;
     width: 20rem;
     max-height: 50rem;
@@ -84,7 +118,7 @@ main {
 
 /*======================CONTACT======================*/
 .form-contact {
-    color: rgb(33,37,41);
+    color: var(--colorOscuro);
     background-color: transparent !important;
 }
 
