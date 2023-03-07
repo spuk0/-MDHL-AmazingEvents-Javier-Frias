@@ -60,7 +60,7 @@ function allCardsUpcomingEvents(){
                                 <p class="card-text">${event.description}</p>
                                 <div class="d-flex justify-content-between align-items-end">
                                     <h6 class="cardPrice">$${event.price}</h6>
-                                    <a href="../pages/details.html" class="btn btn-primary btn-showMore">Show more</a>
+                                    <a href="../pages/details.html?id=${event._id}" class="btn btn-primary btn-showMore">Show more</a>
                                 </div>
                             </div>
                     </div>`
