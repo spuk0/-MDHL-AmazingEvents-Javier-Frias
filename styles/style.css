@@ -67,21 +67,94 @@ main {
     filter: saturate(80%);
 }
 
-/*======================CHECKBOXES======================*/
-
+/*======================FILTER======================*/
+/*==ALL-CONTAINER==*/
 .searchBarContainer{
     /*position: sticky;
     top: 10vh;¨*/
-    color: var(--colorLogo);
-}
-
-.searchBar {
     margin-top: 70px;
     margin-bottom: 5px;
 }
-.categoryCheckboxes {
-    width: 50vh;
+/*==SEARCH-WRITING-WHITESPACE==*/
+.writeSearch input{
+    height: 6vh;
+    border: 2px solid var(--colorOscuro);
 }
+/*==SEARCH-WRITING-FOCUS==*/
+.writeSearch input:focus{
+    border: 2px solid var(--colorLogo);
+    overflow:hidden;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+}
+
+/*==SEARCH-WRITING-BUTTON==*/
+.btn-searchWriting {
+    background-color: var(--colorOscuro);
+    transition: all 0.3s ease-out 5ms;
+    border: 1px solid transparent;
+}
+.btn-searchWriting:hover{
+    border: 1px solid transparent;
+    background-color: var(--colorLogo);
+}
+
+/*==CHECKBOXES==*/
+.checkboxContainer {
+    color: var(--colorOscuro);
+    width: 35%;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-evenly;
+    /*GLASS-BACKGROUND*/
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+/*==CHECKBOX-LEGEND==*/
+.checkboxContainer legend{
+    color: var(--colorLogo);
+    font-weight: bold;
+}
+/*==CHECKBOX-INPUT-AND-TEXT==*/
+.checkbox{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 1.8vh;
+    font-weight: bold;
+}
+/*==CHECKBOX-BOX==*/
+.checkbox input {
+    appearance: none;
+    cursor: pointer;
+    width: 2vh;
+    height: 2vh;
+    border: 1px solid var(--colorOscuro);
+    background-image: url("../assets/no-checked.svg");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.1s ease-in-out;
+}
+/*==CHECKBOX-CHECKED==*/
+.checkbox input:checked {
+    border: 1px solid var(--colorOscuro);
+    background-image: url("../assets/smile-checked.svg");
+    background-size: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: var(--colorLogo);
+    -webkit-transform:scale(1);
+    transform:scale(1.1);
+  }
 
 /*======================MAIN-CARDS======================*/
 #cards{

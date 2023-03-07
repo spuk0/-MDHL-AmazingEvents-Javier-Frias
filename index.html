@@ -85,75 +85,91 @@
     <!--======================MAIN-CONTENT======================-->
     <main>
       <!--======================FORM-CATEGORY======================-->
-      <div class="container-fluid searchBarContainer">
-        <form id="searchBar" role="search" class="searchBar d-flex align-items-center justify-content-around flex-wrap">
-          <fieldset>
-          <label for="food">Food</label>
-          <input
-            type="checkbox"
-            name="food"
-            id="food"
-            value="Food"
-          />
+      <div class="container searchBarContainer">
+        <form id="searchBar" role="search" class="searchBar d-flex justify-content-between align-items-center flex-wrap">
+          <fieldset class="checkboxContainer">
+            <legend>Please check a category to filter</legend>
+            <div class="checkbox">
+              <label for="food">Food</label>
+              <input
+                type="checkbox"
+                name="food"
+                id="food"
+                value="Food"
+              />
+            </div>
+            
+            <div class="checkbox">
+              <label for="books">Books</label>
+              <input
+                type="checkbox"
+                name="books"
+                id="books"
+                value="Books"
+              />
+            </div>
   
-          <label for="books">Books</label>
-          <input
-            type="checkbox"
-            name="books"
-            id="books"
-            value="Books"
-          />
-  
-          <label for="party">Party</label>
-          <input
-            type="checkbox"
-            name="party"
-            id="party"
-            value="Party"
-          />
-  
-          <label for="race">Race</label>
-          <input
-            type="checkbox"
-            name="race"
-            id="race"
-            value="Race"
-          />
-  
-          <label for="concert">Concert</label>
-          <input
-            type="checkbox"
-            name="concert"
-            id="concert"
-            value="Concert"
-          />
+            <div class="checkbox">
+              <label for="party">Party</label>
+              <input
+                type="checkbox"
+                name="party"
+                id="party"
+                value="Party"
+              />
+            </div>
 
-          <label for="museum">Museum</label>
-          <input
-            type="checkbox"
-            name="museum"
-            id="museum"
-            value="Museum"
-          />
+            <div class="checkbox">
+              <label for="race">Race</label>
+              <input
+                type="checkbox"
+                name="race"
+                id="race"
+                value="Race"
+              />
+            </div>
+            
+            <div class="checkbox">
+              <label for="concert">Concert</label>
+              <input
+                type="checkbox"
+                name="concert"
+                id="concert"
+                value="Concert"
+              />
+            </div>
 
-          <label for="cinema">Cinema</label>
-          <input
-            type="checkbox"
-            name="cinema"
-            id="cinema"
-            value="Cinema"
-          />
+            <div class="checkbox">
+              <label for="museum">Museum</label>
+              <input
+                type="checkbox"
+                name="museum"
+                id="museum"
+                value="Museum"
+              />
+            </div>
+
+
+            <div class="checkbox">
+              <label for="cinema">Cinema</label>
+              <input
+                type="checkbox"
+                name="cinema"
+                id="cinema"
+                value="Cinema"
+              />
+            </div>
           </fieldset>
           <!--======================FORM-SEARCH-BUTTON======================-->
-          <fieldset class="d-flex">
+          <fieldset class="writeSearch d-flex">
             <input
               id="search-write-space"
-              class="form-control searchSpace me-2"
+              class="form-control me-2"
               type="search"
-              placeholder="Search"
+              placeholder="Search event"
               aria-label="Search"
             />
-            <button class="btn btn-outline-dark" type="submit">Search</button>
+            <button class="btn btn-primary btn-searchWriting" type="submit">Search</button>
           </fieldset>
         </form>
       </div>
