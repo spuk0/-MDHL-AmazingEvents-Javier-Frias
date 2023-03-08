@@ -189,6 +189,11 @@ main {
 .eventImg {
     min-height: 15rem;
     overflow:hidden;
+    transition: all 0.3s ease-out 5ms;
+}
+
+.eventImg:hover {
+    filter: saturate(50%);
 }
 
 .card-body {
