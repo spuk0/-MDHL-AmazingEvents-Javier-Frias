@@ -53,17 +53,17 @@ function allCardsUpcomingEvents(){
         var eventDate = new Date(year, month, day); //Asignacion de fecha del eveto.
         if(eventDate > currentDate) { //Solo eventos pasados construiran el codigo html de la card.
             htmlCards += `<div id="${event._id}" class="card cardMain">
-                        <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${event.name}</h5>
-                                <p class="card-text">${event.date}</p>
-                                <p class="card-text">${event.description}</p>
-                                <div class="d-flex justify-content-between align-items-end">
-                                    <h6 class="cardPrice">$${event.price}</h6>
-                                    <a href="../pages/details.html?id=${event._id}" class="btn btn-primary btn-custom">Show more</a>
-                                </div>
-                            </div>
-                    </div>`
+            <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${event.name}</h5>
+                    <p class="card-text card-date">${event.date}</p>
+                    <p class="card-text">${event.description}</p>
+                    <div class="card-footer d-flex justify-content-between align-items-end">
+                        <h6 class="card-price">$${event.price}</h6>
+                        <a href="./pages/details.html?id=${event._id}" class="btn btn-primary btn-custom">Show more</a>
+                    </div>
+                </div>
+        </div>`
         }
         month = "";
         day = "";
