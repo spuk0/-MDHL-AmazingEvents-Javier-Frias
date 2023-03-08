@@ -159,11 +159,13 @@ main {
   }
 
 /*======================MAIN-CARDS======================*/
+/*==CARDS-CONTAINER==*/
 #cards{
     margin-top: 5%;
     gap: 40px;
     /*padding: 10vh;*/
 }
+/*==EACH-CARD==*/
 .cardMain {
     position:static;
     margin-bottom: 40px;
@@ -178,24 +180,24 @@ main {
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     transition: all 0.3s ease-out 5ms;
 }
-
+/*==EACH-CARD-HOVER==*/
 .cardMain:hover {
     border: 1px solid var(--colorLogo);
     filter: saturate(190%);
     -webkit-transform:scale(1);
     transform:scale(1.1);
 }
-
+/*==EACH-CARD-IMG==*/
 .eventImg {
     min-height: 15rem;
     overflow:hidden;
     transition: all 0.3s ease-out 5ms;
 }
-
+/*==EACH-CARD-HOVER==*/
 .eventImg:hover {
     filter: saturate(50%);
 }
-
+/*==EACH-CARD-BODY==*/
 .card-body {
     display: flex;
     flex-direction: column;
@@ -203,26 +205,18 @@ main {
     font-weight: 600;
     text-decoration: solid;
 }
-
-.card-title{
+/*==EACH-CARD-BODY-TITLE && PRICE==*/
+.card-title, .card-price{
     font-weight: 800;
     color: var(--colorLogo);
 }
-
+/*==EACH-CARD-BODY-DATE==*/
 .card-date{
     color: grey;
 }
 
-.card-price{
-    font-weight: 800;
-    color: var(--colorLogo);
-}
-
-
-/*===SHOWMORE-BUTTON====*/
-
 /*======================CONTACT======================*/
-
+/*==BACKGROUND-GLASS==*/
 .glass-form{
     border: 2px solid black;
     background: rgba(255, 255, 255, 0.04);
@@ -232,26 +226,22 @@ main {
     -webkit-backdrop-filter: blur(5px);
     width: 50%;
 }
-
+/*==FORM-CONTACT-CONTAINER==*/
 .form-contact {
     color: var(--colorOscuro);
     font-weight: bold;
 
 }
-
+/*==FORM-CONTACT-TITLE==*/
 .text-primary {
     color: var(--colorLogo) !important;
     font-weight: bold;
 }
-
-.btn-contact {
-    background-color: var(--colorLogo) !important;
-}
-
+/*==FORM-CONTACT-SIZE-SMILE==*/
 .lead {
     width: 3%;
 }
-
+/*==FORM-CONTACT-SHADOW-ONCLICK==*/
 .form-contact-body input:focus, .form-contact-body textarea:focus {
     border: 2px solid var(--colorLogo);
     overflow:hidden;
@@ -261,14 +251,28 @@ main {
 }
 
 /*======================STATS======================*/
-caption {	
+.table-container {
+    border: 2px solid black;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 50%;
+}
+
+caption h3 {	
     color: var(--colorLogo) !important;
+    font-weight: bold;
 }
 
 .table td, .table th {
     border: 1px solid #000000;
+    color: black;
+    font-size: 1.8vh;
+    font-weight: 800;
+    background-color: var(--colorClaro);
 }
-
 /*======================DETAILS======================*/
 .imageDetail {
     min-height: 25vh;
