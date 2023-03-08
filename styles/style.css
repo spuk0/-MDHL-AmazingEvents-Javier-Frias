@@ -21,6 +21,16 @@ main {
     min-height: 85.3vh;
 }
 
+/*======================CUSTOM-BUTTON======================*/
+.btn-custom {
+    background-color: var(--colorOscuro);
+    transition: all 0.3s ease-out 5ms;
+    border: 1px solid transparent;
+}
+.btn-custom:hover{
+    border: 1px solid transparent;
+    background-color: var(--colorLogo);
+}
 /*======================NAVBAR======================*/
 /*==Text==*/
 .navbar-nav {
@@ -45,7 +55,7 @@ main {
     margin-left: 20px;
 }
 .navbar-brand:hover {
-    filter: saturate(190%);
+    filter: saturate(80%);
 }
 
 /*======================TITLE======================*/
@@ -93,17 +103,6 @@ main {
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-}
-
-/*==SEARCH-WRITING-BUTTON==*/
-.btn-searchWriting {
-    background-color: var(--colorOscuro);
-    transition: all 0.3s ease-out 5ms;
-    border: 1px solid transparent;
-}
-.btn-searchWriting:hover{
-    border: 1px solid transparent;
-    background-color: var(--colorLogo);
 }
 
 /*==CHECKBOXES==*/
