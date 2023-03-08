@@ -86,13 +86,14 @@
     </header>
     <!--======================MAIN-CONTENT======================-->
     <main>
-      <form class="form-contact mt-5 container-fluid">
-        <div class="text-center">
+      <form class="form-contact mt-5 container-fluid d-flex justify-content-center">
+        <div class="glass-form">
+          <div class="text-center">
             <h3 class="text-primary">Keep in touch</h3>
-            <p class="lead">c:</p>
+            <img src="../assets/smile-checked.svg" class="lead">
         </div>
         <div class="d-flex justify-content-center">
-            <div class="form-contact-body col-md-4 p-4">
+            <div class="form-contact-body col-md-5 p-1">
                     <div>
                         <label for="name" class="form-label">Name</label>
                         <input id="name" type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -106,8 +107,9 @@
                         <textarea id="message" name="message" cols="20" rows="6" class="form-control"
                             placeholder="Message"></textarea>
                     </div>
-                    <input type="submit" value="Submit" class="btn btn-primary btn-custom">
+                    <input type="submit" value="Submit" class="mb-3 btn btn-primary btn-custom">
             </div>
+        </div>
         </div>
       </form>
     </main>

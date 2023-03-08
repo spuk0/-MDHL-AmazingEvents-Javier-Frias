@@ -222,17 +222,42 @@ main {
 /*===SHOWMORE-BUTTON====*/
 
 /*======================CONTACT======================*/
+
+.glass-form{
+    border: 2px solid black;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 50%;
+}
+
 .form-contact {
     color: var(--colorOscuro);
-    background-color: transparent !important;
+    font-weight: bold;
+
 }
 
 .text-primary {
     color: var(--colorLogo) !important;
+    font-weight: bold;
 }
 
 .btn-contact {
     background-color: var(--colorLogo) !important;
+}
+
+.lead {
+    width: 3%;
+}
+
+.form-contact-body input:focus, .form-contact-body textarea:focus {
+    border: 2px solid var(--colorLogo);
+    overflow:hidden;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 }
 
 /*======================STATS======================*/
