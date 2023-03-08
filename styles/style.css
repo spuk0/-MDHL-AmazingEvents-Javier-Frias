@@ -83,7 +83,7 @@ main {
 /*==FILTER-BOX-CONTAINER==*/
 .searchBarContainer{
     /*position: sticky;
-    top: 10vh;¨*/
+    top: 10vh;*/
     margin-top: 70px;
     margin-bottom: 5px;
 }
@@ -274,6 +274,11 @@ caption h3 {
     background-color: var(--colorClaro);
 }
 /*======================DETAILS======================*/
+
+.cardDetails {
+    width: 80%;
+}
+
 .card-text-details {
     gap: 10px;
     margin-bottom: 15px;
@@ -290,6 +295,17 @@ footer {
     padding: 1%;
 }
 
+.credits{
+    text-decoration: none;
+    color: var(--colorClaro);
+    transition: all 0.2s ease-out 3ms;
+}
+
+.credits:hover{
+    font-weight: bold;
+    color: var(--colorLogo);
+}
+
 /*======================MEDIA-QUERIES======================*/
 
 /*Celus muy pequenios*/
@@ -302,6 +318,9 @@ footer {
         width: 10rem;
         height: 15rem;
     }
+    .searchBar{
+        justify-content: center !important;
+    }
 }
 
 /*Celus pequenios*/
@@ -313,6 +332,9 @@ footer {
     .card-text-details {
         width: 15rem;
         height: 15rem;
+    }
+    .searchBar{
+        justify-content: center !important;
     }
 
 }
@@ -331,6 +353,9 @@ footer {
         border: 1px solid #eee;
         width: 15rem;
         height: 15rem;
+    }
+    .searchBar{
+        justify-content: center !important;
     }
 }
 
