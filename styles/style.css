@@ -274,8 +274,14 @@ caption h3 {
     background-color: var(--colorClaro);
 }
 /*======================DETAILS======================*/
+.card-text-details {
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
 .imageDetail {
-    min-height: 25vh;
+    min-height: 30vh;
+    min-width: 30vh;
 }
 
 /*======================FOOTER======================*/
