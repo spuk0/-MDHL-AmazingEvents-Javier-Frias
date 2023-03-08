@@ -24,10 +24,12 @@ main {
 /*======================CUSTOM-BUTTON======================*/
 .btn-custom {
     background-color: var(--colorOscuro);
+    font-weight: 500;
     transition: all 0.3s ease-out 5ms;
     border: 1px solid transparent;
 }
 .btn-custom:hover{
+    color: var(--colorClaro);
     border: 1px solid transparent;
     background-color: var(--colorLogo);
 }
