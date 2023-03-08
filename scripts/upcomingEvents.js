@@ -1,6 +1,7 @@
 /*=================Constantes-variables-cards&filter=================*/
 const cardsContainer = document.getElementById("cards");
 const checkboxesFilter = document.getElementById("searchBar");
+const checkboxContainer = document.getElementById("checkboxContainer");
 const searchWriteSpace = document.getElementById("search-write-space");
 const bodyPage = document.querySelector("body");
 let htmlCards = ""; //String que almacenara el html "global" de las cards.
@@ -9,7 +10,7 @@ let htmlCards = ""; //String que almacenara el html "global" de las cards.
 bodyPage.addEventListener("load", allCardsUpcomingEvents()); //Al cargar la pagina genera las cartas.
 searchWriteSpace.addEventListener("keyup", searchText); //Al presionar teclas dentro del input ejecuta la funcion.
 checkboxesFilter.addEventListener("submit", search); //Al presionar el submit ejecuta la funcion.
-checkboxesFilter.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
+checkboxContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
     let nums = [];
     let categories = event.currentTarget.querySelectorAll("input[type=checkbox]");
     for(let i=0; i < categories.length; i++){ 
@@ -120,6 +121,8 @@ function search(event){
     },
     checkbox = {
         applySearchCheckbox: ( () => {
+            let countCards=0;
+            let countFiltered=0;
             if(dataFromSearch.category.length == 0){ //Si al presionar submit no hay ninguna categoria seleccionada emite una alerta.
                 alert("Please select a category");
             }else {
@@ -127,13 +130,21 @@ function search(event){
                     const selectedCard = document.getElementById(event._id); //A cada evento le asigna una referencia por ID.
                     if(selectedCard != null){
                         selectedCard.classList.add("filterCheckboxSearch"); //A cada evento le agrega la clase.
-                        dataFromSearch.category.forEach(selectedCategory => { //Recorre el array de categorias que esten seleccionadas.
-                            if(event.category === selectedCategory){ //Si la categoria seleccionada coincide con la del evento, le quita la clase.
-                                selectedCard.classList.remove("filterCheckboxSearch");
-                            }
-                        });
+                        countCards++;
+                        if(selectedCard.classList.contains("filterInputSearch")){
+                            countFiltered++;
+                        }else{
+                            dataFromSearch.category.forEach(selectedCategory => { //Recorre el array de categorias que esten seleccionadas.
+                                if(event.category === selectedCategory){ //Si la categoria seleccionada coincide con la del evento, le quita la clase.
+                                    selectedCard.classList.remove("filterCheckboxSearch");
+                                }else{
+                                    countFiltered++;
+                                }
+                            });
+                        }
                     }
                 });
+                errorMessage(countFiltered, countCards, "checkbox unfound");
             }
         })()
     };
