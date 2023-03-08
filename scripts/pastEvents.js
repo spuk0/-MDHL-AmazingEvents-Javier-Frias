@@ -1,7 +1,7 @@
 /*=================Constantes-variables-cards&filter=================*/
 const cardsContainer = document.getElementById("cards");
 const checkboxesFilter = document.getElementById("searchBar");
-const checkboxContainer = document.getElementById("checkboxContainer")
+const checkboxContainer = document.getElementById("checkboxContainer");
 const searchWriteSpace = document.getElementById("search-write-space");
 const bodyPage = document.querySelector("body");
 let htmlCards = ""; //String que almacenara el html "global" de las cards.
@@ -23,6 +23,7 @@ checkboxContainer.addEventListener("change", (event) => { //Al percibirse cambio
             const selectedCard = document.getElementById(event._id);
             if(selectedCard != null){
                 selectedCard.classList.remove("filterCheckboxSearch");
+                selectedCard.classList.remove("filterInputSearch");
             }
         });
     }

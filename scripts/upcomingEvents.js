@@ -23,6 +23,7 @@ checkboxContainer.addEventListener("change", (event) => { //Al percibirse cambio
             const selectedCard = document.getElementById(event._id);
             if(selectedCard != null){
                 selectedCard.classList.remove("filterCheckboxSearch");
+                selectedCard.classList.remove("filterInputSearch");
             }
         });
     }
