@@ -155,8 +155,10 @@ function search(event){
 /*--Muestra un error si no se encuentra una busqueda--*/
 function errorMessage(countFiltered, countCards, writedText){
     if(countCards == countFiltered){
-        document.getElementById("errorMessage").innerHTML =`<h2>ERROR</h2>
-                                                            <p>${writedText} not found</p>`
+        document.getElementById("errorMessage").classList.add("errorMessage-background");
+        document.getElementById("errorMessage").innerHTML =`<h2 style="color: var(--colorLogo); font-weight: bold;">ERROR</h2>
+                                                            <img src="../assets/AmazingNotFound.png" width="320px">
+                                                            <h4 style="font-weight:bold;">${writedText} not found</h4>`
     }else{
         document.getElementById("errorMessage").innerHTML = "";
     }
