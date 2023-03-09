@@ -62,6 +62,8 @@ main {
 
 /*======================TITLE======================*/
 .title {
+    align-items: center;
+    margin-top: 30px;
     padding: 8vh;
     background-image: url("../assets/title-background.svg");
     background-size: cover;
@@ -134,15 +136,15 @@ main {
     flex-direction: row;
     gap: 5px;
     margin-bottom: 10px;
-    font-size: 1.8vh;
+    font-size: 100%;
     font-weight: bold;
 }
 /*==CHECKBOX-BOX==*/
 .checkbox input {
     appearance: none;
     cursor: pointer;
-    width: 2vh;
-    height: 2vh;
+    width: 1rem;
+    height: 1rem;
     border: 1px solid var(--colorOscuro);
     transition: all 0.1s ease-in-out;
 }
@@ -310,6 +312,13 @@ footer {
 
 /*Celus muy pequenios*/
 @media (max-width: 575.98px){
+    .title{
+        gap: 10px;
+    }
+    .title h1{
+        text-align: center;
+        font-weight: bold;
+    }
     .cardDetails {
         flex-direction: column !important;
         align-items: center;
@@ -321,47 +330,181 @@ footer {
     .searchBar{
         justify-content: center !important;
     }
+
+    /*==CONTACT==*/ 
+    .glass-form {
+        border: none;
+        width: 100%;
+    }
+    /*==FORM-CONTACT-BODY==*/ 
+    .form-contact-body{
+        font-size: 3vh;
+        font-weight: bold;
+    }
+    /*==FORM-CONTACT-TITLE==*/
+    .text-primary {
+        font-size: 4vh;
+    }
+    /*==FORM-CONTACT-SIZE-SMILE==*/
+    .lead {
+        width: 10%;
+    }
+   /*==STATS==*/ 
+    .table-container {
+        width:100%;
+        border: none;
+    }
+    footer {
+        position:relative;
+        font-size: 14px;
+    }
+
+    footer h3 {
+        font-size: 16px;
+    }
+
+    footer div{
+        flex-direction: column !important;
+        gap: 20px;
+    }
 }
 
 /*Celus pequenios*/
 @media (min-width: 576px) and (max-width: 767px){
+    .title{
+        gap: 10px;
+    }
+    .title h1{
+        text-align: center;
+        font-weight: bold;
+    }
     .cardDetails {
         flex-direction: column !important;
         align-items: center;
     }
     .card-text-details {
-        width: 15rem;
+        width: 10rem;
         height: 15rem;
     }
     .searchBar{
         justify-content: center !important;
     }
 
+    /*==CONTACT==*/ 
+    .glass-form {
+        border: none;
+        width: 100%;
+    }
+    /*==FORM-CONTACT-BODY==*/ 
+    .form-contact-body{
+        font-size: 3vh;
+        font-weight: bold;
+    }
+    /*==FORM-CONTACT-TITLE==*/
+    .text-primary {
+        font-size: 4vh;
+    }
+    /*==FORM-CONTACT-SIZE-SMILE==*/
+    .lead {
+        width: 10%;
+    }
+   /*==STATS==*/ 
+    .table-container {
+        width:100%;
+        border: none;
+    }
 }
 
 /*Tablets*/
 @media (min-width: 768px) and (max-width: 991px) {
+    .title{
+        gap: 10px;
+    }
+    .title h1{
+        text-align: center;
+        font-weight: bold;
+    }
     .cardDetails {
         flex-direction: column !important;
         align-items: center;
     }
     .card-text-details {
-        width: 15rem;
-        height: 15rem;
-    }
-    .img-details {
-        border: 1px solid #eee;
-        width: 15rem;
+        width: 10rem;
         height: 15rem;
     }
     .searchBar{
         justify-content: center !important;
     }
+
+    /*==CONTACT==*/ 
+    .glass-form {
+        border: none;
+        width: 100%;
+    }
+    /*==FORM-CONTACT-BODY==*/ 
+    .form-contact-body{
+        font-size: 3vh;
+        font-weight: bold;
+    }
+    /*==FORM-CONTACT-TITLE==*/
+    .text-primary {
+        font-size: 4vh;
+    }
+    /*==FORM-CONTACT-SIZE-SMILE==*/
+    .lead {
+        width: 10%;
+    }
+   /*==STATS==*/ 
+    .table-container {
+        width:100%;
+        border: none;
+    }
 }
 
 /*Celus pc*/
-@media (min-width: 992px){
+@media (min-width: 992px) and (max-width: 1700px){
+    .title{
+        gap: 10px;
+    }
+    .title h1{
+        text-align: center;
+        font-weight: bold;
+    }
+    .cardDetails {
+        flex-direction: column !important;
+        align-items: center;
+    }
+    .card-text-details {
+        width: 10rem;
+        height: 15rem;
+    }
+    .searchBar{
+        justify-content: center !important;
+    }
 
+    /*==CONTACT==*/ 
+    .glass-form {
+        border: none;
+        width: 100%;
+    }
+    /*==FORM-CONTACT-BODY==*/ 
+    .form-contact-body{
+        font-size: 3vh;
+        font-weight: bold;
+    }
+    /*==FORM-CONTACT-TITLE==*/
+    .text-primary {
+        font-size: 4vh;
+    }
+    /*==FORM-CONTACT-SIZE-SMILE==*/
+    .lead {
+        width: 10%;
+    }
+   /*==STATS==*/ 
+    .table-container {
+        width:100%;
+        border: none;
+    }
 }
 
 /*======================JAVASCRIPT======================*/
