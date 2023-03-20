@@ -7,8 +7,9 @@ const bodyPage = document.querySelector("body");
 //const errorContainer = document.getElementById("errorMessage");
 let htmlCards = "";
 
+
 /*=================Eventos con referencias a funciones=================*/
-bodyPage.addEventListener("load", allCards()); //Al cargar la pagina genera las cartas.
+bodyPage.addEventListener("load", getData()); //Al cargar la pagina genera las cartas.
 searchWriteSpace.addEventListener("keyup", searchText); //Al presionar teclas dentro del input ejecuta la funcion.
 checkboxesFilter.addEventListener("submit", search); //Al presionar el submit ejecuta la funcion.
 checkboxesContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
@@ -31,6 +32,18 @@ checkboxesContainer.addEventListener("change", (event) => { //Al percibirse camb
 
 /*=================Funciones asignadas a eventos=================*/
 
+/*--Funcion asincrona donde se consumen los datos de una API para rellenar los datos de las cards.--*/
+async function getData(){
+    try{
+        let response = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        let data = await response.json()
+        allCards(data);
+    } catch {
+        console.log("Error al leer la API");
+    }
+}
+
+
 /*--Es para agregar cards al contenedor de cards
         @param htmlCode - representa el codigo html que debe ir como parametro.
 --*/
@@ -39,8 +52,9 @@ function addCards(htmlCode){
 }
 
 /*--Carga todas las cartas y las agrega al contenedor de cartas--*/
-function allCards(){
-    for (const event of objEvent.events ){
+function allCards(objEvent){
+    console.log(objEvent);
+    for (const event of objEvent.events){
         htmlCards += `<div id="${event._id}" class="card cardMain">
                         <img src="${event.image}" class="card-img-top eventImg" alt="${event.name}">
                             <div class="card-body">

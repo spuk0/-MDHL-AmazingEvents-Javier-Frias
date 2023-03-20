@@ -7,10 +7,10 @@ const bodyPage = document.querySelector("body");
 let htmlCards = ""; //String que almacenara el html "global" de las cards.
 
 /*=================Eventos con referencias a funciones=================*/
-bodyPage.addEventListener("load", allCardsPastEvents()); //Al cargar la pagina genera las cartas.
+bodyPage.addEventListener("load", getData()); //Al cargar la pagina genera las cartas.
 searchWriteSpace.addEventListener("keyup", searchText); //Al presionar teclas dentro del input ejecuta la funcion.
 checkboxesFilter.addEventListener("submit", search); //Al presionar el submit ejecuta la funcion.
-checkboxContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
+checkboxesContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
     let nums = [];
     let categories = event.currentTarget.querySelectorAll("input[type=checkbox]");
     for(let i=0; i < categories.length; i++){ 
@@ -21,15 +21,25 @@ checkboxContainer.addEventListener("change", (event) => { //Al percibirse cambio
     if(nums.length == 0){ //Si se quita el check de todos los checkboxes se quita la clase filterCheckBoxSearch.
         objEvent.events.forEach(event => {
             const selectedCard = document.getElementById(event._id);
-            if(selectedCard != null){
-                selectedCard.classList.remove("filterCheckboxSearch");
-                selectedCard.classList.remove("filterInputSearch");
-            }
+            selectedCard.classList.remove("filterCheckboxSearch");
+            selectedCard.classList.remove("filterInputSearch");
         });
     }
 });
 
+
 /*=================Funciones asignadas a eventos=================*/
+
+/*--Funcion asincrona donde se consumen los datos de una API para rellenar los datos de las cards.--*/
+async function getData(){
+    try{
+        let response = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        let data = await response.json()
+        allCardsPastEvents(data);
+    } catch {
+        console.log("Error al leer la API");
+    }
+}
 
 /*--Es para agregar cards al contenedor de cards
         @param htmlCode - representa el codigo html que debe ir como parametro.
@@ -39,7 +49,7 @@ function addCards(htmlCode){
 }
 
 /*--Escribe y agrega las cards segun su fecha, eventos pasados.--*/
-function allCardsPastEvents(){
+function allCardsPastEvents(objEvent){
     const currentMonth= objEvent.currentDate[5] + objEvent.currentDate[6];
     const currentDay = objEvent.currentDate[8] + objEvent.currentDate[9];
     const currentYear = objEvent.currentDate[0] + objEvent.currentDate[1] + objEvent.currentDate[2] + objEvent.currentDate[3];
