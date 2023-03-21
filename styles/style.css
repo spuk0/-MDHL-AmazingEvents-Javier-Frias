@@ -5,6 +5,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --colorLogo: #d90368;
     --colorClaro: #FFF5EE;
