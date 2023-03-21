@@ -35,8 +35,10 @@ checkboxesContainer.addEventListener("change", (event) => { //Al percibirse camb
 /*--Funcion asincrona donde se consumen los datos de una API para rellenar los datos de las cards.--*/
 async function getData(){
     try{
-        let response = await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-        let data = await response.json()
+        let data;
+        await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response=>response.json())
+        .then(json=>data = json)
         allCards(data);
     } catch {
         console.log("Error al leer la API");

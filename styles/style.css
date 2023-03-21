@@ -261,6 +261,7 @@ main {
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     width: 50%;
+    margin-bottom: 20px;
 }
 
 caption h3 {	
