@@ -76,6 +76,7 @@ function mainFunction(data){
     let objEvent = data;
     searchText(objEvent);
     checkboxFilter(objEvent);
+    categoryList(objEvent);
 }
 /*--Realiza una busqueda del texto insertado en el input
     @param event - representa el evento al cual esta funcion esta siendo referenciada.
@@ -117,6 +118,7 @@ function checkboxFilter(objEvent){
             category : (() => {
                 let arrayCategories = [];
                 let categories = event.target.querySelectorAll("input[type=checkbox]"); //Referencia a todos los input de type checkbox
+                console.log(categories);
                 for(let i=0; i < categories.length; i++){
                     if(categories[i].checked){ //Si esta checked entonces realiza la accion
                         arrayCategories.push(categories[i].value); //La accion es llenar el array con el nombre de la categoria.
@@ -131,7 +133,7 @@ function checkboxFilter(objEvent){
                 let countCards=0;
                 let countFiltered=0;
                 if(dataFromSearch.category.length == 0){ //Si al presionar submit no hay ninguna categoria seleccionada emite una alerta.
-                    alert("Please select a category");
+                    
                 }else {
                     objEvent.events.forEach(event => { //Recorre los eventos de la base de datos.
                         const selectedCard = document.getElementById(event._id); //A cada evento le asigna una referencia por ID.
@@ -172,6 +174,16 @@ function checkboxFilter(objEvent){
             });
         }
     });
+}
+
+function categoryList(objEvent){
+    let categories = [];
+    objEvent.events.forEach(item => {
+        if (!categories.some((category) => category == item.category)) {
+            categories.push(item.category);
+        }
+    })
+    return categories;
 }
 
 /*--Muestra un error si no se encuentra una busqueda--*/

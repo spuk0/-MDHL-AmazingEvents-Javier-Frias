@@ -122,6 +122,7 @@ function search(event){
         category : (() => {
             let arrayCategories = [];
             let categories = event.target.querySelectorAll("input[type=checkbox]"); //Referencia a todos los input de type checkbox
+            console.log(categories);
             for(let i=0; i < categories.length; i++){
                 if(categories[i].checked){ //Si esta checked entonces realiza la accion
                     arrayCategories.push(categories[i].value); //La accion es llenar el array con el nombre de la categoria.
