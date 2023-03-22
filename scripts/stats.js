@@ -162,7 +162,7 @@ function completeUpcomingEvents(events){
 
         ue += `                             <tr>
                                                 <td>${categories[i]}</td>
-                                                <td>${revenues}</td>
+                                                <td>$${revenues}</td>
                                                 <td>${percentage.toFixed(2)}%</td>
                                             </tr>`;
     }
@@ -197,7 +197,7 @@ function completePastEvents(events){
 
         ue += `                             <tr>
                                                 <td>${categories[i]}</td>
-                                                <td>${revenues}</td>
+                                                <td>$${revenues}</td>
                                                 <td>${percentage.toFixed(2)}%</td>
                                             </tr>`;
     }
