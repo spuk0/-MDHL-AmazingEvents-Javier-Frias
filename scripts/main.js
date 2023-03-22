@@ -7,45 +7,31 @@ const bodyPage = document.querySelector("body");
 //const errorContainer = document.getElementById("errorMessage");
 let htmlCards = "";
 
-
 /*=================Eventos con referencias a funciones=================*/
 bodyPage.addEventListener("load", getData()); //Al cargar la pagina genera las cartas.
 /*--Funcion asincrona donde se consumen los datos de una API para rellenar los datos de las cards.--*/
 async function getData(){
     try{
-        let objEvent;
+        let data;
         await fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then(response=>response.json())
-        .then(json=>objEvent = json)
-        allCards(objEvent);
-        mainFunction(objEvent);
-    } catch {
-        console.log("Error al leer la API");
+        .then(json=>data = json)
+        allCards(data);
+        mainFunction(data);
+    } catch (error) {
+        console.log(error);
     }
 }
 
-//searchWriteSpace.addEventListener("keyup", searchText); Al presionar teclas dentro del input ejecuta la funcion.
-//checkboxesFilter.addEventListener("submit", search); //Al presionar el submit ejecuta la funcion.
-/* checkboxesContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
-    let nums = [];
-    let categories = event.currentTarget.querySelectorAll("input[type=checkbox]");
-    for(let i=0; i < categories.length; i++){ 
-        if(categories[i].checked){
-            nums.push(1); //Completa un array por cada check.
-        } 
-    }
-    if(nums.length == 0){ //Si se quita el check de todos los checkboxes se quita la clase filterCheckBoxSearch.
-        objEvent.events.forEach(event => {
-            const selectedCard = document.getElementById(event._id);
-            selectedCard.classList.remove("filterCheckboxSearch");
-            selectedCard.classList.remove("filterInputSearch");
-        });
-    }
-}); */
-
-
 /*=================Funciones asignadas a eventos=================*/
-
+/*--Aqui se ejecutan las funciones usando los datos extraidos de la API.
+        @param data - son los datos que vienen de la API.
+--*/
+function mainFunction(data){
+    let objEvent = data;
+    searchText(objEvent);
+    checkboxFilter(objEvent);
+}
 /*--Es para agregar cards al contenedor de cards
         @param htmlCode - representa el codigo html que debe ir como parametro.
 --*/
@@ -70,13 +56,6 @@ function allCards(objEvent){
                     </div>`
     }
     addCards(htmlCards); //Con los datos brindados en el data.js se arman todas las cards.
-}
-
-function mainFunction(data){
-    let objEvent = data;
-    searchText(objEvent);
-    checkboxFilter(objEvent);
-    categoryList(objEvent);
 }
 /*--Realiza una busqueda del texto insertado en el input
     @param event - representa el evento al cual esta funcion esta siendo referenciada.
@@ -108,32 +87,33 @@ function searchText(objEvent){
     
 }
 
-/*--Realiza una busqueda segun los checkboxes seleccionados.
-    @param event - representa el evento al cual esta funcion esta siendo referenciada.
---*/
 function checkboxFilter(objEvent){
-    checkboxesFilter.addEventListener("submit", (event) => {
-        event.preventDefault(); //Para que no recargue la pagina al presionar el submit.
+    checkboxesContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
         dataFromSearch = {
             category : (() => {
-                let arrayCategories = [];
-                let categories = event.target.querySelectorAll("input[type=checkbox]"); //Referencia a todos los input de type checkbox
-                console.log(categories);
-                for(let i=0; i < categories.length; i++){
-                    if(categories[i].checked){ //Si esta checked entonces realiza la accion
-                        arrayCategories.push(categories[i].value); //La accion es llenar el array con el nombre de la categoria.
-                    }
+                let arrCheckedCategories = [];
+                let categories = event.currentTarget.querySelectorAll("input[type=checkbox]");
+                for(let i=0; i < categories.length; i++){ 
+                    if(categories[i].checked){
+                        arrCheckedCategories.push(categories[i].value); //Completa un array por cada check.
+                    } 
                 }
-                return arrayCategories; //Retorna el array de categorias que esten seleccionadas.
-            })(),
-            
-        },
-        checkbox = {
-            applySearchCheckbox: ( () => {
+                return arrCheckedCategories;
+            })()
+        }
+        execute = {
+            applySearchCheckbox : (() => {
                 let countCards=0;
                 let countFiltered=0;
                 if(dataFromSearch.category.length == 0){ //Si al presionar submit no hay ninguna categoria seleccionada emite una alerta.
-                    
+                    objEvent.events.forEach(event => {
+                        const selectedCard = document.getElementById(event._id);
+                        if(selectedCard != null){
+                            selectedCard.classList.remove("filterCheckboxSearch");
+                            selectedCard.classList.remove("filterInputSearch");
+                            countFiltered--;
+                        }
+                    });
                 }else {
                     objEvent.events.forEach(event => { //Recorre los eventos de la base de datos.
                         const selectedCard = document.getElementById(event._id); //A cada evento le asigna una referencia por ID.
@@ -153,37 +133,11 @@ function checkboxFilter(objEvent){
                             }
                         }
                     });
-                    errorMessage(countFiltered, countCards, "checkbox unfound");
                 }
+                errorMessage(countFiltered, countCards, "checkbox unfound");
             })()
-        };
-    });
-    checkboxesContainer.addEventListener("change", (event) => { //Al percibirse cambios ejecuta el siguiente bloque de codigo.
-        let nums = [];
-        let categories = event.currentTarget.querySelectorAll("input[type=checkbox]");
-        for(let i=0; i < categories.length; i++){ 
-            if(categories[i].checked){
-                nums.push(1); //Completa un array por cada check.
-            } 
-        }
-        if(nums.length == 0){ //Si se quita el check de todos los checkboxes se quita la clase filterCheckBoxSearch.
-            objEvent.events.forEach(event => {
-                const selectedCard = document.getElementById(event._id);
-                selectedCard.classList.remove("filterCheckboxSearch");
-                selectedCard.classList.remove("filterInputSearch");
-            });
-        }
-    });
-}
-
-function categoryList(objEvent){
-    let categories = [];
-    objEvent.events.forEach(item => {
-        if (!categories.some((category) => category == item.category)) {
-            categories.push(item.category);
         }
     })
-    return categories;
 }
 
 /*--Muestra un error si no se encuentra una busqueda--*/
