@@ -158,7 +158,7 @@ function checkboxFilter(objEvent){
                         }
                     });
                 }
-                errorMessage(countFiltered, countCards, "checkbox unfound");
+                errorMessage(countFiltered, countCards, "checkbox");
             })()
         }
     })
@@ -168,7 +168,7 @@ function checkboxFilter(objEvent){
 function errorMessage(countFiltered, countCards, writedText){
     if(countCards == countFiltered){
         document.getElementById("errorMessage").classList.add("errorMessage-background");
-        document.getElementById("errorMessage").innerHTML =`<h2 style="color: var(--colorLogo); font-weight: bold;">ERROR</h2>
+        document.getElementById("errorMessage").innerHTML =`<h2 style="color: var(--colorLogo); font-weight: bold;">NOT FOUND</h2>
                                                             <img src="../assets/AmazingNotFound.png" width="320px">
                                                             <h4 style="font-weight:bold;">${writedText} not found</h4>`
     }else{
